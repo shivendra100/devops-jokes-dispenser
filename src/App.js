@@ -12,7 +12,7 @@ function App() {
     setError(null);
     try {
       // Ensure this URL matches your backend service URL
-      const response = await fetch('http://localhost:4000/api/joke');
+      const response = await fetch('http://localhost:5000/api/joke');
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
