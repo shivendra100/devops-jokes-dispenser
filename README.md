@@ -1,22 +1,3 @@
-## Project Structure
-
-.
-├── backend/                  # Flask backend service
-│   ├── app.py
-│   ├── requirements.txt
-│   └── Dockerfile
-├── frontend/                 # React frontend application
-│   ├── public/
-│   ├── src/
-│   ├── package.json
-│   └── Dockerfile
-└── kubernetes/               # Kubernetes manifests for deployment
-├── backend-deployment.yaml
-├── backend-service.yaml
-├── frontend-deployment.yaml
-├── frontend-service.yaml
-└── minikube-ingress.yaml
-
 
 ## Local Development Setup
 
