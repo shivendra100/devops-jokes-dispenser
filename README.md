@@ -45,18 +45,14 @@ This project demonstrates a simple CI/CD pipeline for a joke-displaying applicat
 
 ### 1. Azure DevOps Account & Project
 
-* Create an organization (e.g., `yourname-devops-org`) and a project (e.g., `DevOpsJokeApp`) at [dev.azure.com](https://dev.azure.com/).
+* Create an organization shivendrasingh100 and a project [dev.azure.com](https://dev.azure.com/shivendrasingh100).
 
 ### 2. Azure Repos
 
 * Create two separate Git repositories: `backend` and `frontend`.
 * Push the respective codebases to these repositories.
-    * `git remote add origin https://<ORG>@dev.azure.com/<ORG>/<PROJECT>/_git/backend`
-    * `git push -u origin --all` (Do this for both backend and frontend repos)
-* **Branch Policies:** Configure `master` (or `main`) branch with:
-    * Minimum 1 reviewer
-    * Linked work items (optional)
-    * Build validation (enabled after pipeline creation)
+    * `git remote add origin https://dev.azure.com/shivendrasingh100/_git/backend
+    * `git push -u origin --all
 
 ### 3. Self-Hosted Agent
 
