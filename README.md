@@ -1,7 +1,3 @@
-# DevOps Joke Dispenser
-
-This project demonstrates a simple CI/CD pipeline for a joke-displaying application using Azure DevOps, Docker, and Kubernetes (Minikube).
-
 ## Project Structure
 
 .
