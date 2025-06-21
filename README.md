@@ -3,7 +3,7 @@
 DevOps Joke Dispenser Application: A Project Journey
 This document outlines the development and CI/CD setup for a simple joke-displaying application, detailing the steps I took using Azure DevOps, Docker, and Kubernetes (Minikube).
 
-1. Local Development Setup
+## 1. Local Development Setup
 To get started, I first ensured my local environment had the necessary tools.
 
 Prerequisites I ensured I had installed:
