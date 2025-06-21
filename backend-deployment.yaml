@@ -6,7 +6,7 @@ metadata:
     app: joke-app
     tier: backend
 spec:
-  replicas: 1 # Start with 1, can be scaled
+  replicas: 1 
   selector:
     matchLabels:
       app: joke-app
@@ -19,17 +19,17 @@ spec:
     spec:
       containers:
       - name: backend-service
-        image: backend-joke-app:latest # Placeholder - image built by pipeline
-        imagePullPolicy: Never # For local Minikube, assume image exists locally
+        image: backend-joke-app:latest 
+        imagePullPolicy: Never
         ports:
         - containerPort: 5000
-        livenessProbe: # Checks if the container is running
+        livenessProbe: 
           httpGet:
             path: /api/joke
             port: 5000
           initialDelaySeconds: 5
           periodSeconds: 5
-        readinessProbe: # Checks if the container is ready to serve traffic
+        readinessProbe: 
           httpGet:
             path: /api/joke
             port: 5000

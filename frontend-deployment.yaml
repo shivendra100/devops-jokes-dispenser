@@ -6,7 +6,7 @@ metadata:
     app: joke-app
     tier: frontend
 spec:
-  replicas: 1 # Start with 1
+  replicas: 1 
   selector:
     matchLabels:
       app: joke-app
@@ -19,8 +19,8 @@ spec:
     spec:
       containers:
       - name: frontend-app
-        image: frontend-joke-app:latest # Placeholder - image built by pipeline
-        imagePullPolicy: Never # For local Minikube, assume image exists locally
+        image: frontend-joke-app:latest 
+        imagePullPolicy: Never 
         ports:
         - containerPort: 80
         resources:
