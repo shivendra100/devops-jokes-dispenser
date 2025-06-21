@@ -1,0 +1,43 @@
+# azure-pipelines-backend-build.yml
+trigger:
+- backend
+
+pool:
+  name: Default # Or the name of your self-hosted agent pool
+
+variables:
+  python_version: '3.9'
+  backend_folder: 'backend' # Assuming your backend code is in a 'backend' folder at repo root
+  backend_artifact_name: 'backend-dist'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '$(python_version)'
+    addToPath: true
+
+- script: |
+    pip install --upgrade pip
+    pip install -r $(backend_folder)/requirements.txt
+  displayName: 'Install Backend Dependencies'
+
+# Optional: Add tests if you have them
+# - script: |
+#    python $(backend_folder)/test_app.py # if you have a test file
+#   displayName: 'Run Backend Tests'
+
+# Package the backend code (e.g., zip it for deployment)
+- script: |
+    pip install wheel
+    pip install setuptools
+    # For a simple Flask app, you might just zip the folder
+    # However, for Python services, it's common to use tools like poetry or setuptools for proper packaging.
+    # For this example, let's just copy files to an artifact staging directory.
+    mkdir $(Build.ArtifactStagingDirectory)/$(backend_folder)
+    cp -r $(backend_folder)/* $(Build.ArtifactStagingDirectory)/$(backend_folder)/
+    cp $(backend_folder)/.flaskenv $(Build.ArtifactStagingDirectory)/$(backend_folder)/ # Copy .flaskenv if exists
+  displayName: 'Prepare Backend Artifact'
+
+- publish: $(Build.ArtifactStagingDirectory)/$(backend_folder)
+  artifact: $(backend_artifact_name)
+  displayName: 'Publish Backend Artifact'
