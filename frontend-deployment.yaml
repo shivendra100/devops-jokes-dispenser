@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  labels:
+    app: joke-app
+    tier: frontend
+spec:
+  replicas: 1 # Start with 1
+  selector:
+    matchLabels:
+      app: joke-app
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: joke-app
+        tier: frontend
+    spec:
+      containers:
+      - name: frontend-app
+        image: frontend-joke-app:latest # Placeholder - image built by pipeline
+        imagePullPolicy: Never # For local Minikube, assume image exists locally
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
